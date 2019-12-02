@@ -17,13 +17,10 @@ class ArticleController extends AbstractController
      */
     public function articles()
     {
-        $article = new Article();
-        $article->setName('First');
-        $article->setContent('First content');
+        $em = $this->getDoctrine()->getManager();
+        $r = $em->getRepository(Article::class);
 
-        $articles = [
-            $article
-        ];
+        $articles = $r->findAll();
 
         return View::create($articles);
     }
