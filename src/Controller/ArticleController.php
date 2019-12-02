@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -21,5 +22,6 @@ class ArticleController extends AbstractController
             $article
         ];
 
+        return View::create($articles);
     }
 }
